@@ -1,0 +1,21 @@
+{
+  "name": "try-apollo-codegen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gen:schema": "apollo-codegen introspect-schema src/schema.graphql --output gen/schema.json",
+    "gen:flow": "apollo-codegen generate --schema gen/schema.json --target flow 'src/**/*.js' --output gen/types.flow.js",
+    "gen:flow:s": "npm run gen:flow -- --passthrough-custom-scalars",
+    "gen:ts": "apollo-codegen generate --schema gen/schema.json --target typescript 'src/**/*.js' --output gen/types.d.ts",
+    "gen:ts:s": "npm run gen:ts -- --passthrough-custom-scalars",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-codegen": "^0.18.3",
+    "graphql-tag": "^2.7.3"
+  }
+}
